@@ -21,21 +21,9 @@ function checkEmailDomain(email) {
     });
 }
 
-async function verifyEmailExists(email) {
-    return new Promise((resolve) => {
-        emailExistence.check(email, (err, exists) => {
-            if (err) {
-                console.error("Error verifying email existence:", err);
-                resolve(false);
-            } else {
-                resolve(exists);
-            }
-        });
-    });
-}
 
 module.exports = {
     isDisposableEmail,
     checkEmailDomain,
-    verifyEmailExists,
+
 };

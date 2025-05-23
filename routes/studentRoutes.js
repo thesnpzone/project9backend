@@ -11,7 +11,7 @@ const transporter = require("../utils/mailer");
 const {
   isDisposableEmail,
   checkEmailDomain,
-  verifyEmailExists,
+
 } = require("../utils/emailValidation");
 
 const studentRegistrationEmail = require("../MailTempleat/mtStudentRegistration");
@@ -42,9 +42,7 @@ router.post("/send-otp", async (req, res) => {
       return res.status(400).json({ error: "Email domain is invalid" });
     }
 
-    if (!(await verifyEmailExists(emailAddress))) {
-      return res.status(400).json({ error: "Email does not exist" });
-    }
+
 
     const existingStudent = await Student.findOne({ emailAddress });
 
