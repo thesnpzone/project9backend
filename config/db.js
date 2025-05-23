@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const connectDB = async() => {
     try {
 
-        const mongoURI = 'mongodb://localhost:27017/SkillHuntDB';
 
-        await mongoose.connect(mongoURI);
+
+        await mongoose.connect(process.env.MONGO_URI);
 
         console.log('MongoDB connected successfully');
     } catch (err) {
